@@ -11,7 +11,6 @@ class ResultCard extends React.Component {
                             <h3><a target={'_blank'} href={el.html_url}>{el.full_name}</a></h3>
                             <p>Количество звезд : {el.stargazers_count}</p>
                             <p>количество подписчиков : {el.watchers_count}</p>
-                        {console.log(this.props.name)}
                         </div>)}
 
                 )

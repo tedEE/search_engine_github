@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from "react-redux";
-import ResultCard from './ResultCard'
 
 
 class Search extends React.Component {
@@ -12,8 +11,9 @@ class Search extends React.Component {
 
     render(){
         return (
-            <div>
-                <input type="text" onBlur={(e)=>this.onChangeInput(e)}/>
+            <div className={'search'}>
+                <h1 className={'search__title'}>Поиск по github</h1>
+                <input className={'search__input'} type="text" onBlur={(e)=>this.onChangeInput(e)}/>
             </div>
         )
     }

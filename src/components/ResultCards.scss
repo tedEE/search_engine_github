@@ -1,0 +1,13 @@
+.result_cards{
+  @include row-flex();
+}
+.card {
+  padding: 12px;
+  @include col();
+  @include size(4);
+  @include size-sm(6);
+  @include size-xs(12);
+  text-align: center;
+  border: 1px solid black;
+  margin-top: 12px;
+}

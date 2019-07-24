@@ -1,4 +1,4 @@
-import ConstrPauload from './ConstrPauload'
+
 
 let initialState =
     {

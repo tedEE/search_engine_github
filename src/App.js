@@ -7,10 +7,10 @@ class App extends React.Component{
 
     render() {
         return (
-            <div>
-                <h1>Поиск по github</h1>
+            <div className={'wrapper'}>
                 <Search></Search>
-                { this.props.elem ? <ResultCard/> : null }
+                <div className={'result_cards'}> { this.props.elem ? <ResultCard/> : null } </div>
+
             </div>
 
         );
