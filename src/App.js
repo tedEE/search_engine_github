@@ -9,7 +9,7 @@ class App extends React.Component{
         return (
             <div className={'wrapper'}>
                 <Search></Search>
-                <div className={'result_cards'}> { this.props.elem ? <ResultCard/> : null } </div>
+                <div className={'result_cards'}> { this.props.flag ? <ResultCard/> : null } </div>
 
             </div>
 
@@ -20,7 +20,7 @@ class App extends React.Component{
 
 function mapStateToProps(state) {
     return {
-        elem : state.elem
+        flag : state.flag
     }
 }
 

@@ -11,7 +11,14 @@ import mySaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(addElement, applyMiddleware(sagaMiddleware));
-export const getName = store => store.name
+// export const getName = (store) => store.name
+export const getName = (store) => {
+    if (store.name !== null){
+        return store.name
+    }else {
+        return ""
+    }
+}
 sagaMiddleware.run(mySaga)
 const app = (
     <Provider store={store}>

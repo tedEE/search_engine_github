@@ -1,24 +1,28 @@
 
-
 let initialState =
     {
-        name : false,
-        elem : false
+        name : '',
+        bad_name : true,
+        elem : [],
+        flag : false,
     };
-
 
 export default function addElement(state=initialState, action){
 
     switch (action.type) {
         case 'ADD_ELEM':
             return {
-                ...state,
-                elem : action.payload
+                elem : [ ...action.payload],
+                flag : true,
+                bad_name : false
             };
         case 'ADD_NAME':
             return {
-                ...state,
                 name : action.payload
+        };
+        case 'BAD_NAME':
+            return {
+                bad_name : true
         };
         default:
             return state;

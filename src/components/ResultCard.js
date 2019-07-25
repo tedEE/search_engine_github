@@ -1,8 +1,12 @@
+
 import React from 'react'
 import {connect} from "react-redux";
 
-class ResultCard extends React.Component {
-    // name-ссылка,  stargazers_count , watchers_count , html_url
+type Props = {
+    elem : Array
+};
+
+class ResultCard extends React.Component<Props> {
 
     render(){
         return(
@@ -20,7 +24,6 @@ class ResultCard extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        name : state.name,
         elem : state.elem
     }
 }
