@@ -5,10 +5,19 @@ import {debounce} from "lodash"
 
 type Props = {
     bad_name: boolean,
-    addUrl : any,
-    addElm : any,
-    badName : any,
+    addUrl : Function,
+    addElm : Function,
+    badName : Function,
 };
+
+type addUrlAction = { type: "ADD_NAME",subject : number };
+type addElmlAction = { type: "FETCH_REQUESTED"};
+type badNameAction = { type: "BAD_NAME"};
+
+type Action =
+    | addUrlAction
+    | addElmlAction
+    | badNameAction;
 
 class Search extends React.Component<Props>{
 
@@ -46,9 +55,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        addUrl : (subject)=>dispatch({type: "ADD_NAME", payload : subject}),
-        addElm : ()=>dispatch({type: "FETCH_REQUESTED"}),
-        badName : ()=>dispatch({type: 'BAD_NAME'})
+        addUrl : (subject:number):addUrlAction => dispatch({type: "ADD_NAME", payload : subject}),
+        addElm : ():addElmlAction=>dispatch({type: "FETCH_REQUESTED"}),
+        badName : ():badNameAction=>dispatch({type: 'BAD_NAME'})
     }
 }
 

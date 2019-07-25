@@ -1,13 +1,11 @@
-
+// @flow
 import React from 'react'
 import {connect} from "react-redux";
-
 type Props = {
-    elem : Array
-};
+    elem : Array<Object>
+}
 
 class ResultCard extends React.Component<Props> {
-
     render(){
         return(
             this.props.elem.map((el, i)=>{
