@@ -12,6 +12,7 @@ export default function addElement(state=initialState, action){
     switch (action.type) {
         case 'ADD_ELEM':
             return {
+                ...state,
                 elem : [ ...action.payload],
                 flag : true,
                 bad_name : false
@@ -22,7 +23,7 @@ export default function addElement(state=initialState, action){
         };
         case 'BAD_NAME':
             return {
-                bad_name : true
+                bad_name : action.payload
         };
         default:
             return state;

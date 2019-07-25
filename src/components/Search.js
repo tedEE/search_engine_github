@@ -12,7 +12,7 @@ type Props = {
 
 type addUrlAction = { type: "ADD_NAME",subject : number };
 type addElmlAction = { type: "FETCH_REQUESTED"};
-type badNameAction = { type: "BAD_NAME"};
+type badNameAction = { type: "BAD_NAME", value : boolean};
 
 type Action =
     | addUrlAction
@@ -25,12 +25,12 @@ class Search extends React.Component<Props>{
     onChangeInput = debounce((value)=>{
         value = value.replace(/^\s+|\s+$/g, '')
         if (value === '' ) {
-            this.props.badName()
+            this.props.badName(true)
         }else{
             this.props.addUrl(value);
             this.props.addElm()
         }
-    }, 1000)
+    }, 700)
 
     render(){
         return (
@@ -57,7 +57,7 @@ function mapDispatchToProps(dispatch) {
     return {
         addUrl : (subject:number):addUrlAction => dispatch({type: "ADD_NAME", payload : subject}),
         addElm : ():addElmlAction=>dispatch({type: "FETCH_REQUESTED"}),
-        badName : ():badNameAction=>dispatch({type: 'BAD_NAME'})
+        badName : (value):badNameAction=>dispatch({type: 'BAD_NAME', payload : value })
     }
 }
 
